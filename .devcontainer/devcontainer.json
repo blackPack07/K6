@@ -1,0 +1,10 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"features": {
+		"ghcr.io/grafana/devcontainer-features/k6:1": {
+			"version": "1.0.0",
+			"xk6-version": "latest",
+			"go-version": "1.24.4"
+		}
+	}
+}
