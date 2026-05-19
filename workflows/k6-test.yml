@@ -1,0 +1,22 @@
+name: Run k6 Performance Test
+
+on: [push, workflow_dispatch] # Triggers on code push or manual button click
+
+jobs:
+  k6_test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup k6
+        uses: grafana/setup-k6-action@v1
+
+      - name: Run k6 Script with GitHub Secrets
+        run: k6 run DashboardMenuLoaded.js
+        env:
+          # This maps your hidden GitHub Secrets directly to your k6 __ENV keys!
+          DASHBOARD_MENU_URL: ${{ secrets.DASHBOARD_MENU_URL }}
+          GOREST_TOKEN: ${{ secrets.GOREST_TOKEN }}
+          TEST_USER: ${{ secrets.TEST_USER }}
+          TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
