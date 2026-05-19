@@ -1,0 +1,5 @@
+{
+  "rev_gorest_header_url": "https://gorest.co.in/public/v2/users",   
+  "gorest_header_token": "GOREST_TOKEN",
+  "dashboard_page_url": "DASHBOARD_MENU_URL"
+}

@@ -3,6 +3,7 @@ import { check } from 'k6';
 import { htmlReport } from "https://raw.githubusercontent.com/benc-uk/k6-reporter/2.4.0/dist/bundle.js";
 
 const config = JSON.parse(open('../Env-setup.json'));
+const secureToken = __ENV.GOREST_TOKEN;
 
 export const options={
     vus:10,
@@ -10,7 +11,7 @@ export const options={
 }
 
 let headers={
-    'Authorization':`Bearer ${config.gorest_header_token}`,
+    'Authorization':`Bearer ${secureToken}`,
     'Accept': 'application/json',
     'Content-Type': 'application/json'
 }
